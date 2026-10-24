@@ -1,6 +1,13 @@
-# ☁️ AWS — Criar um site no Amazon S3
+<p align="center">
+<img width="600" alt="Image" src="https://github.com/user-attachments/assets/d8735861-b016-4a8b-bb0c-be83c0335750" />
+</p>
 
-## 📌 Sobre o laboratório
+
+<header>
+ <h1 align="center">☁️ AWS — Criar um site no Amazon S3
+</header>
+
+<h1 align="center"> 📌 Sobre o laboratório </h1>
 
 Este laboratório apresenta a utilização da **AWS Command Line Interface (AWS CLI)** para criar e configurar recursos na AWS, com o objetivo de hospedar um site estático no **Amazon Simple Storage Service (Amazon S3)**.
 
@@ -110,7 +117,7 @@ Nesta etapa, foi criado um bucket no Amazon S3 utilizando o comando `aws s3api c
 
 ```bash
 aws s3api create-bucket \
-  --bucket <NOME_DO_BUCKET> \
+  --bucket alessandro-edn-875 \
   --region us-west-2 \
   --create-bucket-configuration LocationConstraint=us-west-2
 ```
@@ -214,7 +221,7 @@ Nesta etapa, foi habilitada a hospedagem de site estático e realizado o upload 
 ### Habilitar a hospedagem de site estático
 
 ```bash
-aws s3 website s3://<NOME_DO_BUCKET>/ \
+aws s3 website s3://alessandro-edn-875/ \
   --index-document index.html
 ```
 
@@ -223,7 +230,7 @@ aws s3 website s3://<NOME_DO_BUCKET>/ \
 ```bash
 aws s3 cp \
   /home/ec2-user/sysops-activity-files/static-website/ \
-  s3://<NOME_DO_BUCKET>/ \
+  s3://alessandro-edn-875/ \
   --recursive \
   --acl public-read
 ```
@@ -233,7 +240,7 @@ O parâmetro `--recursive` permite copiar os arquivos e subdiretórios do diret�
 ### Verificar os arquivos enviados
 
 ```bash
-aws s3 ls <NOME_DO_BUCKET>
+aws s3 ls alessandro-edn-875
 ```
 
 Após o upload, foi verificada a configuração de hospedagem de site estático nas propriedades do bucket. O endpoint disponibilizado pelo S3 foi utilizado para abrir o site no navegador.
@@ -261,14 +268,14 @@ vi update-website.sh
 
 ### Conteúdo do script
 
-Substitua `<NOME_DO_BUCKET>` pelo nome real do bucket utilizado no laboratório.
+Substitua `alessandro-edn-875` pelo nome real do bucket utilizado no laboratório.
 
 ```bash
 #!/bin/bash
 
 aws s3 cp \
   /home/ec2-user/sysops-activity-files/static-website/ \
-  s3://<NOME_DO_BUCKET>/ \
+  s3://alessandro-edn-875/ \
   --recursive \
   --acl public-read
 ```
@@ -305,7 +312,7 @@ Exemplo:
 ```bash
 aws s3 sync \
   /home/ec2-user/sysops-activity-files/static-website/ \
-  s3://<NOME_DO_BUCKET>/ \
+  s3://alessandro-edn-875/ \
   --acl public-read
 ```
 
@@ -347,7 +354,8 @@ A criação do script Bash também mostrou como automatizar atualizações recor
 Registro da criação do bucket utilizando a AWS CLI.
 
 <p align="center">
-  <img width="800" alt="Criação do bucket Amazon S3" src="URL_DA_IMAGEM" />
+  <img width="1904" height="892" alt="Image" src="https://github.com/user-attachments/assets/f0938f13-3bea-42ee-9a57-726dfb9df05b" />
+  <img width="1920" height="887" alt="Image" src="https://github.com/user-attachments/assets/fc79a940-6d17-4916-bffc-21abc1f5a1d9" />
 </p>
 
 ### 🔐 Usuário e permissões IAM
@@ -355,7 +363,10 @@ Registro da criação do bucket utilizando a AWS CLI.
 Registro da criação do usuário e da configuração da política de acesso ao S3.
 
 <p align="center">
-  <img width="800" alt="Configuração do usuário IAM e permissões S3" src="URL_DA_IMAGEM" />
+  <img width="1903" height="883" alt="Image" src="https://github.com/user-attachments/assets/12ac3bc7-422c-4500-b8f1-34b4188a35cc" />
+  <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/c9207393-388a-4d56-847f-b39e55d9f4cd" />
+  <img width="1897" height="885" alt="Image" src="https://github.com/user-attachments/assets/21fff78c-564c-4d05-a4fc-685e94b4e3da" />
+  <img width="1901" height="884" alt="Image" src="https://github.com/user-attachments/assets/bc50fad2-24e7-4b50-88ca-c29450d6a8b9" />
 </p>
 
 ### 🌐 Site estático publicado
@@ -363,7 +374,7 @@ Registro da criação do usuário e da configuração da política de acesso ao 
 Registro do site da cafeteria e padaria acessível pelo navegador.
 
 <p align="center">
-  <img width="800" alt="Site estático hospedado no Amazon S3" src="URL_DA_IMAGEM" />
+  <img width="1894" height="887" alt="Image" src="https://github.com/user-attachments/assets/e6728a20-3cf0-407c-8482-4ba0aaa81f77" />
 </p>
 
 ### 🔄 Script de atualização
@@ -371,7 +382,8 @@ Registro do site da cafeteria e padaria acessível pelo navegador.
 Registro do script `update-website.sh` e da execução da atualização do site.
 
 <p align="center">
-  <img width="800" alt="Script Bash para atualizar o site no S3" src="URL_DA_IMAGEM" />
+  <img width="1920" height="881" alt="Image" src="https://github.com/user-attachments/assets/b5a64524-41cb-4e14-ae16-1563d7d17e75" />
+  <img width="1920" height="985" alt="Image" src="https://github.com/user-attachments/assets/2f92382e-2559-456d-bae4-0d17fb18a555" />
 </p>
 
 ---
